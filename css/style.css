@@ -14,9 +14,9 @@
 
 
 
-
+/* Card Base */
 .card-img-top {
-  height: 250px;
+  height: 320px;
   object-fit: cover;
 }
 
@@ -27,8 +27,6 @@
 .card:hover {
   transform: translateY(-5px);
 }
-
-/* Card Base */
 
 .product-card {
   max-width: 520px;
@@ -64,15 +62,11 @@
 
 /* Add to Cart Button */
 .add-btn {
-  opacity: 0;
-  transform: translateY(15px);
+  opacity: 1;
+  transform: translateY(0);
   transition: 0.3s ease;
 }
 
-.product-card:hover .add-btn {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* Cart Icon Overlay */
 .cart-icon {
@@ -175,26 +169,32 @@
   }
   .navbar .d-flex.flex-column button {
     width: 100%;
-    
   }
 }
 
-/* Mobile view for navbar search */
+/* Mobile view for navbar search (updated style) */
 @media (max-width: 768px) {
   .navbar .d-flex.flex-column form {
-    width: 70%; /* search input পুরো row নেবে */
+    width: 70%; /* search input boro hobe */
   }
 
   .navbar .d-flex.flex-column form input {
-    width: 100%; /* input পুরো row */
+    width: 100%; /* input row full width */
     margin-bottom: 5px; /* input + button gap */
   }
 
   .navbar .d-flex.flex-column form button {
-    width: 30%;    /* button ছোট থাকবে */
-    padding: 5px 15px; /* optional padding adjust */
+    width: 30%;    /* button choto hobe */
+    padding: 5px 15px;
   }
 }
 
-
+.category-box {
+  background: #fff;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 90px;
+}
 

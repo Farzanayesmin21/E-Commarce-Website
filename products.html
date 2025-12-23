@@ -16,109 +16,200 @@
     <ul class="navbar-nav ms-auto">
       <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
       <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
-      <li class="nav-item"><a class="nav-link" href="signup.html">Signup</a></li>
-      <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- BREADCRUMB -->
-<div class="container mt-3">
-  <nav>
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item active">Products</li>
-    </ol>
-  </nav>
-</div>
-
 <!-- MAIN CONTENT -->
 <div class="container my-5">
-  <div class="row">
-
-    <!-- LEFT PANEL -->
-    <div class="col-md-3 mb-4">
-      <h5>Categories</h5>
-      <div class="accordion" id="categoryAccordion">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#cat1">
-              Electronics
-            </button>
-          </h2>
-          <div id="cat1" class="accordion-collapse collapse show">
-            <div class="accordion-body">
-              Mobile<br>Laptop<br>Headphone
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#cat2">
-              Fashion
-            </button>
-          </h2>
-          <div id="cat2" class="accordion-collapse collapse">
-            <div class="accordion-body">
-              Shirt<br>Jeans<br>Shoes
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- RIGHT PANEL -->
-    <div class="col-md-9">
-      <div class="row gx-3 gy-4 justify-content-center">
-
-        <!-- Product 1 -->
-        <div class="col-lg-4 col-md-6 col-12">
-          <div class="card product-card h-100">
-            <div class="cart-icon"><i class="bi bi-cart-plus"></i></div>
-            <img src="images/product1.jpg" class="card-img-top" alt="Product 1">
-            <div class="card-body text-center">
-              <h5>Product A</h5>
-              <div class="rating">★★★★☆</div>
-              <p class="price">৳ 1200</p>
-              <a href="product-detail.html" class="btn btn-primary add-btn">View</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product 2 -->
-        <div class="col-lg-4 col-md-6 col-12">
-          <div class="card product-card h-100">
-            <div class="cart-icon"><i class="bi bi-cart-plus"></i></div>
-            <img src="images/product2.jpg" class="card-img-top" alt="Product 2">
-            <div class="card-body text-center">
-              <h5>Product B</h5>
-              <div class="rating">★★★★★</div>
-              <p class="price">৳ 1500</p>
-              <a href="product-detail.html" class="btn btn-primary add-btn">View</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="col-lg-4 col-md-6 col-12">
-          <div class="card product-card h-100">
-            <div class="cart-icon"><i class="bi bi-cart-plus"></i></div>
-            <img src="images/product3.jpg" class="card-img-top" alt="Product 3">
-            <div class="card-body text-center">
-              <h5>Product C</h5>
-              <div class="rating">★★★☆☆</div>
-              <p class="price">৳ 1800</p>
-              <a href="product-detail.html" class="btn btn-primary add-btn">View</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
+  <div class="row gx-3 gy-4 justify-content-center" id="products-container">
+    <!-- Products will load dynamically here -->
   </div>
 </div>
+
+<script>
+  // All 12 products info
+  const products = [
+    {
+      id: "product1",
+      name: "Smart Phone",
+      price: "৳ 3200",
+      rating: "★★★★☆",
+      image: "images/product1.jpg",
+      description: "Smart fitness tracking phone with heart rate monitor, step counter, sleep tracking and mobile notifications support.",
+      specs: ["Heart Rate & Sleep Monitor", "Water Resistant", "7 Days Battery Backup", "5.5 inch Display", "Dual SIM Support"],
+      brand: "TechBrand",
+      sku: "SP001",
+      stock: "In Stock"
+    },
+    {
+      id: "product2",
+      name: "Wireless Headphone",
+      price: "৳ 4500",
+      rating: "★★★★★",
+      image: "images/product2.jpg",
+      description: "Enjoy premium sound quality with deep bass, noise cancellation, and long-lasting comfort.",
+      specs: ["Noise Cancellation", "Bluetooth 5.0", "20 Hours Playtime", "Foldable Design"],
+      brand: "SoundBrand",
+      sku: "WH002",
+      stock: "In Stock"
+    },
+    {
+      id: "product3",
+      name: "Wireless Mouse",
+      price: "৳ 2800",
+      rating: "★★★☆☆",
+      image: "images/product3.webp",
+      description: "Ergonomic wireless mouse for smooth and precise navigation.",
+      specs: ["2.4GHz Wireless", "Ergonomic Design", "Rechargeable Battery", "Adjustable DPI"],
+      brand: "MousePro",
+      sku: "WM003",
+      stock: "In Stock"
+    },
+    {
+      id: "product4",
+      name: "Laptop",
+      price: "৳ 18000",
+      rating: "★★★★☆",
+      image: "images/product4.jpg",
+      description: "High performance laptop with powerful processor and stunning display.",
+      specs: ["8GB RAM", "128GB SSD", "Intel i5 Processor", "15.6 inch Display"],
+      brand: "LapTech",
+      sku: "LP004",
+      stock: "In Stock"
+    },
+    {
+      id: "product5",
+      name: "Tablet",
+      price: "৳ 2200",
+      rating: "★★★★☆",
+      image: "images/product5.jpg",
+      description: "Lightweight tablet perfect for reading, gaming, and multimedia entertainment.",
+      specs: ["8 inch Display", "Quad Core Processor", "2GB RAM", "32GB Storage"],
+      brand: "TabWorld",
+      sku: "TB005",
+      stock: "In Stock"
+    },
+    {
+      id: "product6",
+      name: "Smart Watch",
+      price: "৳ 3500",
+      rating: "★★★★★",
+      image: "images/product6.jpg",
+      description: "Smart watch with fitness tracking, notifications, and sleep monitoring.",
+      specs: ["Heart Rate Monitor", "Step Counter", "Notifications Support", "Water Resistant"],
+      brand: "TimeTech",
+      sku: "SW006",
+      stock: "In Stock"
+    },
+    {
+      id: "product7",
+      name: "CCTV Camera",
+      price: "৳ 8000",
+      rating: "★★★★★",
+      image: "images/product7.avif",
+      description: "High-resolution CCTV camera for home and office security.",
+      specs: ["1080p HD", "Night Vision", "Motion Detection", "Weather Resistant"],
+      brand: "SafeHome",
+      sku: "CC007",
+      stock: "In Stock"
+    },
+    {
+      id: "product8",
+      name: "Camera",
+      price: "৳ 15000",
+      rating: "★★★★☆",
+      image: "images/product8.jpg",
+      description: "DSLR camera for professional photography with crystal clear images.",
+      specs: ["24MP Sensor", "Full HD Video", "Interchangeable Lenses", "WiFi Enabled"],
+      brand: "PhotoPro",
+      sku: "CM008",
+      stock: "In Stock"
+    },
+    {
+      id: "product9",
+      name: "Keyboard",
+      price: "৳ 2200",
+      rating: "★★★☆☆",
+      image: "images/product9.jpg",
+      description: "Mechanical keyboard with backlight and ergonomic design for gamers.",
+      specs: ["Backlight Keys", "Mechanical Switches", "USB Wired", "Durable Build"],
+      brand: "KeyMaster",
+      sku: "KB009",
+      stock: "In Stock"
+    },
+    {
+      id: "product10",
+      name: "Laptop Pro",
+      price: "৳ 45000",
+      rating: "★★★★★",
+      image: "images/product10.jpg",
+      description: "Powerful laptop with high-speed processor and ample storage space.",
+      specs: ["16GB RAM", "512GB SSD", "Intel i7 Processor", "15.6 inch Display"],
+      brand: "LapTech",
+      sku: "LP010",
+      stock: "In Stock"
+    },
+    {
+      id: "product11",
+      name: "Smartphone X",
+      price: "৳ 18000",
+      rating: "★★★★☆",
+      image: "images/product11.jpg",
+      description: "Latest smartphone with dual camera, large display, and fast charging.",
+      specs: ["Dual Camera", "6.5 inch Display", "4000mAh Battery", "Fast Charging"],
+      brand: "TechBrand",
+      sku: "SP011",
+      stock: "In Stock"
+    },
+    {
+      id: "product12",
+      name: "Tablet Pro",
+      price: "৳ 22000",
+      rating: "★★★★★",
+      image: "images/product12.webp",
+      description: "Professional tablet for work, gaming, and multimedia entertainment.",
+      specs: ["10 inch Display", "Quad Core Processor", "4GB RAM", "64GB Storage"],
+      brand: "TabWorld",
+      sku: "TB012",
+      stock: "In Stock"
+    }
+  ];
+
+  const container = document.getElementById('products-container');
+
+  products.forEach(product => {
+    const col = document.createElement('div');
+    col.className = "col-lg-4 col-md-6 col-12";
+
+    col.innerHTML = `
+      <div class="card product-card h-100">
+        <div class="cart-icon"><i class="bi bi-cart-plus"></i></div>
+        <img src="${product.image}" class="card-img-top" alt="${product.name}">
+        <div class="card-body text-center">
+          <h5 style="font-size:22px;font-weight:700;">${product.name}</h5>
+          <div class="rating">${product.rating}</div>
+          <p class="price">${product.price}</p>
+          <button class="btn btn-primary view-btn" data-id="${product.id}">View</button>
+        </div>
+      </div>
+    `;
+
+    container.appendChild(col);
+  });
+
+  // View button click event
+  const viewButtons = document.querySelectorAll('.view-btn');
+  viewButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const productId = button.getAttribute('data-id');
+      const selectedProduct = products.find(p => p.id === productId);
+      localStorage.setItem('selectedProduct', JSON.stringify(selectedProduct));
+      window.location.href = 'product-detail.html';
+    });
+  });
+
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

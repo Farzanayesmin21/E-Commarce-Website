@@ -32,51 +32,243 @@
 </div>
 
 <!-- PRODUCT DETAILS -->
-<div class="container my-5">
-
-  <!-- Product A -->
-  <div class="row mb-5 align-items-center product-row">
-    <div class="col-md-6">
-      <img src="images/product1.jpg" class="img-fluid zoom" alt="Product A">
-    </div>
-    <div class="col-md-6 d-flex flex-column justify-content-center">
-      <h3>Smart Watch</h3>
-      <div class="rating mb-2">★★★★☆</div>
-      <p>Track your fitness, notifications, and enjoy smart features with this sleek smartwatch.</p>
-      <h4>৳ 3200</h4>
-      <button class="btn btn-success">Add to Cart</button>
-    </div>
-  </div>
-
-  <!-- Product B -->
-  <div class="row mb-5 align-items-center product-row " >
-    <div class="col-md-6 order-md-2">
-      <img src="images/product2.jpg" class="img-fluid zoom" alt="Product B" style="max-height:500px; max-width:100%;">
-    </div>
-    <div class="col-md-6 order-md-1 d-flex flex-column justify-content-center">
-      <h3>Wireless Headphone</h3>
-      <div class="rating mb-2">★★★★★</div>
-      <p>Experience high-quality sound with wireless convenience and noise cancellation.</p>
-      <h4>৳ 4500</h4>
-      <button class="btn btn-success">Add to Cart</button>
-    </div>
-  </div>
-
-  <!-- Product C -->
-  <div class="row mb-5 align-items-center product-row">
-    <div class="col-md-6">
-      <img src="images/product3.jpg" class="img-fluid zoom" alt="Product C">
-    </div>
-    <div class="col-md-6 d-flex flex-column justify-content-center">
-      <h3>Bluetooth Speaker</h3>
-      <div class="rating mb-2">★★★☆☆</div>
-      <p>Portable Bluetooth speaker with excellent sound quality and long battery life.</p>
-      <h4>৳ 2800</h4>
-      <button class="btn btn-success">Add to Cart</button>
-    </div>
-  </div>
-
+<div class="container my-5" id="product-detail-container">
+  <!-- Product info will load here dynamically -->
 </div>
+
+<script>
+  // All 12 products info
+  const products = {
+    product1: {
+      name: "Smart Phone",
+      price: "৳ 3200",
+      rating: "★★★★☆",
+      brand: "TechBrand",
+      sku: "SP001",
+      stock: "In Stock",
+      description: "Smart fitness tracking phone with heart rate monitor, step counter, sleep tracking and mobile notifications support.",
+      specs: [
+        "Heart Rate & Sleep Monitor",
+        "Water Resistant",
+        "7 Days Battery Backup",
+        "5.5 inch Display",
+        "Dual SIM Support"
+      ],
+      image: "images/product1.jpg"
+    },
+    product2: {
+      name: "Wireless Headphone",
+      price: "৳ 4500",
+      rating: "★★★★★",
+      brand: "SoundBrand",
+      sku: "WH002",
+      stock: "In Stock",
+      description: "Enjoy premium sound quality with deep bass, noise cancellation, and long-lasting comfort.",
+      specs: [
+        "Noise Cancellation",
+        "Bluetooth 5.0",
+        "20 Hours Playtime",
+        "Foldable Design"
+      ],
+      image: "images/product2.jpg"
+    },
+    product3: {
+      name: "Wireless Mouse",
+      price: "৳ 2800",
+      rating: "★★★☆☆",
+      brand: "MousePro",
+      sku: "WM003",
+      stock: "In Stock",
+      description: "Ergonomic wireless mouse for smooth and precise navigation.",
+      specs: [
+        "2.4GHz Wireless",
+        "Ergonomic Design",
+        "Rechargeable Battery",
+        "Adjustable DPI"
+      ],
+      image: "images/product3.webp"
+    },
+    product4: {
+      name: "Laptop",
+      price: "৳ 18000",
+      rating: "★★★★☆",
+      brand: "LapTech",
+      sku: "LP004",
+      stock: "In Stock",
+      description: "High performance laptop with powerful processor and stunning display.",
+      specs: [
+        "8GB RAM",
+        "128GB SSD",
+        "Intel i5 Processor",
+        "15.6 inch Display"
+      ],
+      image: "images/product4.jpg"
+    },
+    product5: {
+      name: "Tablet",
+      price: "৳ 2200",
+      rating: "★★★★☆",
+      brand: "TabWorld",
+      sku: "TB005",
+      stock: "In Stock",
+      description: "Lightweight tablet perfect for reading, gaming, and multimedia entertainment.",
+      specs: [
+        "8 inch Display",
+        "Quad Core Processor",
+        "2GB RAM",
+        "32GB Storage"
+      ],
+      image: "images/product5.jpg"
+    },
+    product6: {
+      name: "Smart Watch",
+      price: "৳ 3500",
+      rating: "★★★★★",
+      brand: "TimeTech",
+      sku: "SW006",
+      stock: "In Stock",
+      description: "Smart watch with fitness tracking, notifications, and sleep monitoring.",
+      specs: [
+        "Heart Rate Monitor",
+        "Step Counter",
+        "Notifications Support",
+        "Water Resistant"
+      ],
+      image: "images/product6.jpg"
+    },
+    product7: {
+      name: "CCTV Camera",
+      price: "৳ 8000",
+      rating: "★★★★★",
+      brand: "SafeHome",
+      sku: "CC007",
+      stock: "In Stock",
+      description: "High-resolution CCTV camera for home and office security.",
+      specs: [
+        "1080p HD",
+        "Night Vision",
+        "Motion Detection",
+        "Weather Resistant"
+      ],
+      image: "images/product7.avif"
+    },
+    product8: {
+      name: "Camera",
+      price: "৳ 15000",
+      rating: "★★★★☆",
+      brand: "PhotoPro",
+      sku: "CM008",
+      stock: "In Stock",
+      description: "DSLR camera for professional photography with crystal clear images.",
+      specs: [
+        "24MP Sensor",
+        "Full HD Video",
+        "Interchangeable Lenses",
+        "WiFi Enabled"
+      ],
+      image: "images/product8.jpg"
+    },
+    product9: {
+      name: "Keyboard",
+      price: "৳ 2200",
+      rating: "★★★☆☆",
+      brand: "KeyMaster",
+      sku: "KB009",
+      stock: "In Stock",
+      description: "Mechanical keyboard with backlight and ergonomic design for gamers.",
+      specs: [
+        "Backlight Keys",
+        "Mechanical Switches",
+        "USB Wired",
+        "Durable Build"
+      ],
+      image: "images/product9.jpg"
+    },
+    product10: {
+      name: "Laptop Pro",
+      price: "৳ 45000",
+      rating: "★★★★★",
+      brand: "LapTech",
+      sku: "LP010",
+      stock: "In Stock",
+      description: "Powerful laptop with high-speed processor and ample storage space.",
+      specs: [
+        "16GB RAM",
+        "512GB SSD",
+        "Intel i7 Processor",
+        "15.6 inch Display"
+      ],
+      image: "images/product10.jpg"
+    },
+    product11: {
+      name: "Smartphone X",
+      price: "৳ 18000",
+      rating: "★★★★☆",
+      brand: "TechBrand",
+      sku: "SP011",
+      stock: "In Stock",
+      description: "Latest smartphone with dual camera, large display, and fast charging.",
+      specs: [
+        "Dual Camera",
+        "6.5 inch Display",
+        "4000mAh Battery",
+        "Fast Charging"
+      ],
+      image: "images/product11.jpg"
+    },
+    product12: {
+      name: "Tablet Pro",
+      price: "৳ 22000",
+      rating: "★★★★★",
+      brand: "TabWorld",
+      sku: "TB012",
+      stock: "In Stock",
+      description: "Professional tablet for work, gaming, and multimedia entertainment.",
+      specs: [
+        "10 inch Display",
+        "Quad Core Processor",
+        "4GB RAM",
+        "64GB Storage"
+      ],
+      image: "images/product12.webp"
+    }
+  };
+
+  // Get selected product from localStorage
+  const selectedProduct = JSON.parse(localStorage.getItem('selectedProduct'));
+  const container = document.getElementById('product-detail-container');
+
+  if(selectedProduct){
+    const row = document.createElement('div');
+    row.className = "row align-items-center";
+
+    // specs list HTML
+    let specsHTML = '';
+    selectedProduct.specs.forEach(spec => {
+      specsHTML += `<li>${spec}</li>`;
+    });
+
+    row.innerHTML = `
+      <div class="col-md-6">
+        <img src="${selectedProduct.image}" class="img-fluid zoom" alt="${selectedProduct.name}">
+      </div>
+      <div class="col-md-6 d-flex flex-column justify-content-center">
+        <h3>${selectedProduct.name}</h3>
+        <div class="rating mb-2">${selectedProduct.rating}</div>
+        <p><strong>Brand:</strong> ${selectedProduct.brand}</p>
+        <p><strong>SKU:</strong> ${selectedProduct.sku}</p>
+        <p><strong>Stock:</strong> ${selectedProduct.stock}</p>
+        <p>${selectedProduct.description}</p>
+        <ul>${specsHTML}</ul>
+        <h4>${selectedProduct.price}</h4>
+        <button class="btn btn-primary" style="width:150px;">Add to Cart</button>
+      </div>
+    `;
+    container.appendChild(row);
+  } else {
+    container.innerHTML = `<p class="text-center text-danger">No product selected. Please go back to <a href="products.html">Products</a>.</p>`;
+  }
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
