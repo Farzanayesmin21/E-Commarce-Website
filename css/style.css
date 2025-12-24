@@ -60,8 +60,12 @@
 /* Mobile Responsive Navbar */
 @media (max-width: 768px) {
   .navbar-nav .nav-link {
-    font-size: 18px;
-    padding: 10px 0;
+    font-size: 25px;
+    padding: 15px 0;
+  }
+
+  .mobile-nav li a {
+    font-size: 25px; /* offcanvas/mobile menu text বড় করা হয়েছে */
   }
 
   .nav-logo {

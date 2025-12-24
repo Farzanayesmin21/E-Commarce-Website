@@ -12,7 +12,11 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">MyShop</a>
+      <!-- LOGO IMAGE -->
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.png" alt="Logo" class="nav-logo">
+    </a>
+
     <ul class="navbar-nav ms-auto">
       <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
       <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
@@ -32,149 +36,150 @@
   const products = [
     {
       id: "product1",
-      name: "Smart Phone",
-      price: "৳ 3200",
-      rating: "★★★★☆",
+      name: "Laptop",
+      price: "$ 50000",
+      rating: "★★★★★",
       image: "images/product1.jpg",
-      description: "Smart fitness tracking phone with heart rate monitor, step counter, sleep tracking and mobile notifications support.",
-      specs: ["Heart Rate & Sleep Monitor", "Water Resistant", "7 Days Battery Backup", "5.5 inch Display", "Dual SIM Support"],
-      brand: "TechBrand",
-      sku: "SP001",
-      stock: "In Stock"
+      description: "High-performance laptop for gaming and professional use with vibrant display.",
+      specs: ["16GB RAM", "1TB SSD", "Intel i7 Processor", "15.6 inch 4K Display", "Backlit Keyboard"],
+      brand: "ProTech",
+      sku: "LP101",
+      stock: "Limited Stock"
     },
     {
       id: "product2",
-      name: "Wireless Headphone",
-      price: "৳ 4500",
-      rating: "★★★★★",
+      name: "Tablet",
+      price: "$ 4500",
+      rating: "★★★★☆",
       image: "images/product2.jpg",
-      description: "Enjoy premium sound quality with deep bass, noise cancellation, and long-lasting comfort.",
-      specs: ["Noise Cancellation", "Bluetooth 5.0", "20 Hours Playtime", "Foldable Design"],
-      brand: "SoundBrand",
-      sku: "WH002",
+      description: "Lightweight tablet for reading, multimedia, and gaming on the go.",
+      specs: ["10 inch Display", "Octa Core Processor", "3GB RAM", "32GB Storage", "WiFi & 4G"],
+      brand: "TechTab",
+      sku: "TB102",
       stock: "In Stock"
     },
     {
       id: "product3",
-      name: "Wireless Mouse",
-      price: "৳ 2800",
-      rating: "★★★☆☆",
-      image: "images/product3.webp",
-      description: "Ergonomic wireless mouse for smooth and precise navigation.",
-      specs: ["2.4GHz Wireless", "Ergonomic Design", "Rechargeable Battery", "Adjustable DPI"],
-      brand: "MousePro",
-      sku: "WM003",
-      stock: "In Stock"
+      name: "Smart Phone",
+      price: "$ 4000",
+      rating: "★★★★☆",
+      image: "images/product3.jpg",
+      description: "Latest smartphone with high-resolution display and long-lasting battery.",
+      specs: ["6.4 inch Display", "4000mAh Battery", "Dual SIM", "48MP Camera", "Face Unlock"],
+      brand: "SmartPro",
+      sku: "SP103",
+      stock: "Out of Stock"
     },
     {
       id: "product4",
-      name: "Laptop",
-      price: "৳ 18000",
-      rating: "★★★★☆",
-      image: "images/product4.jpg",
-      description: "High performance laptop with powerful processor and stunning display.",
-      specs: ["8GB RAM", "128GB SSD", "Intel i5 Processor", "15.6 inch Display"],
-      brand: "LapTech",
-      sku: "LP004",
+      name: "Wireless Mouse",
+      price: "$ 1000",
+      rating: "★★★☆☆",
+      image: "images/product4.webp",
+      description: "Ergonomic wireless mouse for smooth navigation and gaming.",
+      specs: ["2.4GHz Wireless", "Rechargeable Battery", "Adjustable DPI", "Silent Click"],
+      brand: "ClickMaster",
+      sku: "WM104",
       stock: "In Stock"
     },
     {
       id: "product5",
-      name: "Tablet",
-      price: "৳ 2200",
-      rating: "★★★★☆",
+      name: "Wireless Headphone",
+      price: "$ 2200",
+      rating: "★★★★★",
       image: "images/product5.jpg",
-      description: "Lightweight tablet perfect for reading, gaming, and multimedia entertainment.",
-      specs: ["8 inch Display", "Quad Core Processor", "2GB RAM", "32GB Storage"],
-      brand: "TabWorld",
-      sku: "TB005",
-      stock: "In Stock"
+      description: "Premium wireless headphone with noise cancellation and deep bass.",
+      specs: ["Bluetooth 5.0", "20H Playtime", "Noise Cancellation", "Foldable Design"],
+      brand: "SoundMax",
+      sku: "WH105",
+      stock: "Limited Stock"
     },
     {
       id: "product6",
       name: "Smart Watch",
-      price: "৳ 3500",
-      rating: "★★★★★",
+      price: "$ 2500",
+      rating: "★★★★☆",
       image: "images/product6.jpg",
-      description: "Smart watch with fitness tracking, notifications, and sleep monitoring.",
-      specs: ["Heart Rate Monitor", "Step Counter", "Notifications Support", "Water Resistant"],
-      brand: "TimeTech",
-      sku: "SW006",
+      description: "Stylish smart watch with fitness tracking and message notifications.",
+      specs: ["Heart Rate Monitor", "Step Counter", "Water Resistant", "Sleep Tracking"],
+      brand: "TimePlus",
+      sku: "SW106",
       stock: "In Stock"
     },
     {
       id: "product7",
-      name: "CCTV Camera",
-      price: "৳ 8000",
-      rating: "★★★★★",
+      name: "Earphone",
+      price: "$ 500",
+      rating: "★★★★☆",
       image: "images/product7.avif",
-      description: "High-resolution CCTV camera for home and office security.",
-      specs: ["1080p HD", "Night Vision", "Motion Detection", "Weather Resistant"],
-      brand: "SafeHome",
-      sku: "CC007",
+      description: "Compact and lightweight earphones for crystal clear sound.",
+      specs: ["High Bass", "Noise Isolation", "3.5mm Jack", "Tangle-Free Cable"],
+      brand: "SoundBud",
+      sku: "EP107",
       stock: "In Stock"
     },
     {
       id: "product8",
-      name: "Camera",
-      price: "৳ 15000",
-      rating: "★★★★☆",
+      name: "Gameing remote",
+      price: "$ 5000",
+      rating: "★★★★★",
       image: "images/product8.jpg",
-      description: "DSLR camera for professional photography with crystal clear images.",
-      specs: ["24MP Sensor", "Full HD Video", "Interchangeable Lenses", "WiFi Enabled"],
-      brand: "PhotoPro",
-      sku: "CM008",
-      stock: "In Stock"
+      description: "Advanced gaming remote with programmable buttons and ergonomic design.",
+      specs: ["Wireless", "Rechargeable Battery", "Vibration Feedback", "Customizable Buttons"],
+      brand: "GameX",
+      sku: "GR108",
+      stock: "Limited Stock"
     },
     {
       id: "product9",
-      name: "Keyboard",
-      price: "৳ 2200",
-      rating: "★★★☆☆",
+      name: "Airpods",
+      price: "$ 2200",
+      rating: "★★★★☆",
       image: "images/product9.jpg",
-      description: "Mechanical keyboard with backlight and ergonomic design for gamers.",
-      specs: ["Backlight Keys", "Mechanical Switches", "USB Wired", "Durable Build"],
-      brand: "KeyMaster",
-      sku: "KB009",
+      description: "True wireless Airpods with clear sound and long battery life.",
+      specs: ["Bluetooth 5.2", "24H Playtime with Case", "Noise Reduction", "Lightweight"],
+      brand: "AirTune",
+      sku: "AP109",
       stock: "In Stock"
     },
     {
       id: "product10",
-      name: "Laptop Pro",
-      price: "৳ 45000",
-      rating: "★★★★★",
+      name: "CCTV Camera",
+      price: "$ 4500",
+      rating: "★★★★☆",
       image: "images/product10.jpg",
-      description: "Powerful laptop with high-speed processor and ample storage space.",
-      specs: ["16GB RAM", "512GB SSD", "Intel i7 Processor", "15.6 inch Display"],
-      brand: "LapTech",
-      sku: "LP010",
+      description: "High-resolution CCTV camera for home and office security monitoring.",
+      specs: ["1080p HD", "Night Vision", "Motion Detection", "Weatherproof"],
+      brand: "SecureCam",
+      sku: "CC110",
       stock: "In Stock"
     },
     {
       id: "product11",
-      name: "Smartphone X",
-      price: "৳ 18000",
-      rating: "★★★★☆",
+      name: "Camera",
+      price: "$ 1800",
+      rating: "★★★★★",
       image: "images/product11.jpg",
-      description: "Latest smartphone with dual camera, large display, and fast charging.",
-      specs: ["Dual Camera", "6.5 inch Display", "4000mAh Battery", "Fast Charging"],
-      brand: "TechBrand",
-      sku: "SP011",
-      stock: "In Stock"
+      description: "Professional DSLR camera with high-quality lens and image stabilization.",
+      specs: ["24MP Sensor", "Full HD Video", "WiFi Enabled", "Interchangeable Lenses"],
+      brand: "PhotoKing",
+      sku: "CM111",
+      stock: "Limited Stock"
     },
     {
       id: "product12",
-      name: "Tablet Pro",
-      price: "৳ 22000",
-      rating: "★★★★★",
+      name: "Keyboard",
+      price: "$ 2000",
+      rating: "★★★★☆",
       image: "images/product12.webp",
-      description: "Professional tablet for work, gaming, and multimedia entertainment.",
-      specs: ["10 inch Display", "Quad Core Processor", "4GB RAM", "64GB Storage"],
-      brand: "TabWorld",
-      sku: "TB012",
+      description: "Mechanical keyboard with RGB backlight and ergonomic design for gaming.",
+      specs: ["Mechanical Switches", "RGB Backlight", "USB Wired", "Durable Build"],
+      brand: "KeyMaster",
+      sku: "KB112",
       stock: "In Stock"
     }
-  ];
+];
+
 
   const container = document.getElementById('products-container');
 
