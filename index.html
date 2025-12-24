@@ -25,48 +25,90 @@
 
 
 <!-- ===== NAVBAR ===== -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">MyShop</a>
 
-    <!-- Toggler / Hamburger -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- LOGO IMAGE -->
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.png" alt="Logo" class="nav-logo">
+    </a>
+
+    <!-- TOGGLER -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+      data-bs-target="#mobileMenu" aria-controls="mobileMenu">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Menu -->
+    <!-- MENU -->
     <div class="collapse navbar-collapse" id="menu">
+
+      <!-- NAV ITEMS -->
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-        <li class="nav-item"><a class="nav-link" href="product-detail.html">Product Detail</a></li>
-        
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="products.html">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="product-detail.html">Product Detail</a>
+        </li>
       </ul>
 
-      <!-- Search + Cart -->
-      <div class="d-flex flex-column flex-lg-row align-items-center gap-2">
+      <!-- SEARCH + CART -->
+      <div class="d-flex flex-column flex-lg-row gap-2 align-items-center mt-2 mt-lg-0">
         <form class="d-flex w-100 w-lg-auto">
-          <input class="form-control me-2" type="search" placeholder="Search">
+          <input class="form-control me-2 mobile-search" type="search" placeholder="Search">
           <button class="btn btn-warning">Search</button>
         </form>
-        <button class="btn btn-primary add-btn"  style="width:150px;">Add to Cart</button>
+        <button class="btn btn-primary add-btn" style="width:150px;">
+          Add to Cart
+        </button>
       </div>
+
     </div>
   </div>
 </nav>
+
+<!-- ===== MOBILE OFFCANVAS MENU ===== -->
+<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">
+      <img src="images/logo.png" class="nav-logo">
+    </h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+
+  <div class="offcanvas-body p-0">
+
+    <ul class="mobile-nav">
+      <li><i class="bi bi-house"></i> <a href="index.html">Home</a></li>
+      <li><i class="bi bi-bag"></i> <a href="products.html">Products</a></li>
+      <li><i class="bi bi-info-circle"></i> <a href="product-detail.html">Product Detail</a></li>
+    </ul>
+
+    <hr class="text-secondary">
+
+    <div class="px-3">
+      <button class="btn btn-primary w-100">Add to Cart</button>
+    </div>
+
+  </div>
+</div>
+
 
 
 <!-- ===== SLIDER ===== -->
 <div id="banner" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="3000">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="images/banner1.jpg" class="d-block w-100">
+      <img src="images/banner1.avif" class="d-block w-100">
     </div>
     <div class="carousel-item">
-      <img src="images/banner2.jpg" class="d-block w-100">
+      <img src="images/banner2.avif" class="d-block w-100">
     </div>
     <div class="carousel-item">
-      <img src="images/banner3.jpg" class="d-block w-100">
+      <img src="images/banner3.avif" class="d-block w-100">
     </div>
   </div>
 
