@@ -104,18 +104,24 @@
   <h3 class="text-center mb-4" style="font-size:46px; font-weight:800; color:#0d6efd;">Our Featured Products</h3>
   <h3 style="font-size: 1.8rem; font-weight: 600; color: #0b1c3d; text-align: center; margin-bottom: 15px;">Best Sellers</h3>
   <p style="font-size: 1.1rem; line-height: 1.8; color: #555; max-width: 900px; margin: auto;" class="mb-5">
-    Explore our handpicked selection of top-quality products designed to enhance your lifestyle...
-  </p>
+  Discover our carefully selected range of top-quality products designed to elevate your everyday life. From cutting-edge electronics and stylish accessories to practical gadgets, each item is crafted to offer exceptional performance, reliability, and value. Whether you're enhancing your workspace, upgrading your tech, or finding the perfect gift, our collection brings convenience, innovation, and style together in one place.
+</p>
+
+
+
 
   <div class="row gx-3 gy-4 justify-content-center" id="products-container">
     <!-- JS will populate products here -->
   </div>
+  
 
   <div class="text-center mt-4">
     <a href="products.html" class="btn btn-outline-primary px-5 py-2" style="font-size:18px; font-weight:600;">
       See More Products
     </a>
   </div>
+
+  
 </div>
 
 <!-- ===== FOOTER ===== -->
@@ -159,17 +165,18 @@ setInterval(updateDateTime, 1000);
 
 // ===== Products Array =====
 const products = [
-  {id:1,name:"Laptop",price:"৳5000",rating:"★★★★☆",image:"images/product1.jpg"},
-  {id:2,name:"Tablet",price:"৳4500",rating:"★★★★★",image:"images/product2.jpg"},
-  {id:3,name:"Smart Phone",price:"৳4000",rating:"★★★☆☆",image:"images/product3.jpg"},
-  {id:4,name:"Wireless Mouse",price:"৳500",rating:"★★★★☆",image:"images/product4.webp"},
-  {id:5,name:"Wireless Headphone",price:"৳3500",rating:"★★★☆☆",image:"images/product5.jpg"},
-  {id:6,name:"Smart Watch",price:"৳3200",rating:"★★★★★",image:"images/product6.jpg"}
+  {id:1,name:"Laptop",price:"$5000",rating:"★★★★☆",image:"images/product1.jpg"},
+  {id:2,name:"Tablet",price:"$4500",rating:"★★★★★",image:"images/product2.jpg"},
+  {id:3,name:"Smart Phone",price:"$4000",rating:"★★★☆☆",image:"images/product3.jpg"},
+  {id:4,name:"Wireless Mouse",price:"$500",rating:"★★★★☆",image:"images/product4.webp"},
+  {id:5,name:"Wireless Headphone",price:"$3500",rating:"★★★☆☆",image:"images/product5.jpg"},
+  {id:6,name:"Smart Watch",price:"$3200",rating:"★★★★★",image:"images/product6.jpg"}
 ];
 
 // Populate products dynamically
 const container = document.getElementById('products-container');
-products.forEach(product => {
+
+products.forEach((product, index) => {
   const col = document.createElement('div');
   col.className = "col-lg-4 col-md-6 col-12";
   col.innerHTML = `
@@ -188,7 +195,21 @@ products.forEach(product => {
     </div>
   `;
   container.appendChild(col);
+
+  // ===== Inject New Products headline + paragraph after 3rd product =====
+  if(index === 2) {
+    const newProductsRow = document.createElement('div');
+    newProductsRow.className = "col-12 text-center mt-5 mb-4";
+    newProductsRow.innerHTML = `
+      <h3 style="font-size: 1.8rem; font-weight: 600; color: #0b1c3d;">New Products</h3>
+      <p style="font-size: 1.1rem; line-height: 1.8; color: #555; max-width: 900px; margin: auto;">
+        Check out our latest arrivals that combine style and technology perfectly. From smart gadgets to everyday essentials, these products are designed to enhance your lifestyle with convenience and innovation.
+      </p>
+    `;
+    container.appendChild(newProductsRow);
+  }
 });
+
 </script>
 
 <!-- Bootstrap JS -->
