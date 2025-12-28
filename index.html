@@ -10,12 +10,11 @@
   <!-- External CSS -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-pV5S/9Rm2Z1w3Y6mT+r+HvK3QFJvVnzzxSBx1+0dQ3TfIVMwr6pJmG0+J1d6/+3a+2J+8BTFqSk1H7qnjhk9Wg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
-<!-- ===== TOP BAR ===== -->
+<!--  TOP BAR  -->
 <div class="top-bar text-end px-4 py-2">
   <a href="#">My Account</a>
   <a href="#">Wishlist</a>
@@ -23,7 +22,7 @@
   <a href="signup.html">Register</a>
 </div>
 
-<!-- ===== NAVBAR ===== -->
+<!--  NAVBAR  -->
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
   <div class="container-fluid">
 
@@ -44,22 +43,20 @@
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
         <li class="nav-item"><a class="nav-link" href="allProductDetails.html">Product Details</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">Cart <span id="cartCount" class="badge bg-danger">0</span></a></li>
       </ul>
 
       <div class="d-flex flex-column flex-lg-row gap-2 align-items-center mt-2 mt-lg-0">
-        <form class="d-flex w-100 w-lg-auto">
-          <input class="form-control me-2 mobile-search" type="search" placeholder="Search">
-          <button class="btn btn-warning">Search</button>
+        <form id="searchForm" class="d-flex w-100 w-lg-auto">
+          <input id="searchInput" class="form-control me-2 mobile-search" type="search" placeholder="Search">
+          <button type="submit" class="btn btn-warning">Search</button>
         </form>
-        <button class="btn btn-primary add-btn" style="width:150px;">
-          Add to Cart
-        </button>
       </div>
     </div>
   </div>
 </nav>
 
-<!-- ===== MOBILE OFFCANVAS MENU ===== -->
+<!--  MOBILE OFFCANVAS MENU  -->
 <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="mobileMenu">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title"><img src="images/logo.png" class="nav-logo"></h5>
@@ -72,13 +69,10 @@
       <li><i class="bi bi-bag"></i> <a href="allProductDetails.html">Products Details</a></li>
     </ul>
     <hr class="text-secondary">
-    <div class="px-3">
-      <button class="btn btn-primary w-100">Add to Cart</button>
-    </div>
   </div>
 </div>
 
-<!-- ===== SLIDER ===== -->
+<!--  SLIDER  -->
 <div id="banner" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="3000">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -99,32 +93,26 @@
   </button>
 </div>
 
-<!-- ===== PRODUCTS ===== -->
+<!--  PRODUCTS  -->
 <div class="container my-5">
   <h3 class="text-center mb-4" style="font-size:46px; font-weight:800; color:#0d6efd;">Our Featured Products</h3>
   <h3 style="font-size: 1.8rem; font-weight: 600; color: #0b1c3d; text-align: center; margin-bottom: 15px;">Best Sellers</h3>
   <p style="font-size: 1.1rem; line-height: 1.8; color: #555; max-width: 900px; margin: auto;" class="mb-5">
-  Discover our carefully selected range of top-quality products designed to elevate your everyday life. From cutting-edge electronics and stylish accessories to practical gadgets, each item is crafted to offer exceptional performance, reliability, and value. Whether you're enhancing your workspace, upgrading your tech, or finding the perfect gift, our collection brings convenience, innovation, and style together in one place.
-</p>
-
-
-
+    Discover our carefully selected range of top-quality products designed to elevate your everyday life. From cutting-edge electronics and stylish accessories to practical gadgets, each item is crafted to offer exceptional performance, reliability, and value. Whether you're enhancing your workspace, upgrading your tech, or finding the perfect gift, our collection brings convenience, innovation, and style together in one place.
+  </p>
 
   <div class="row gx-3 gy-4 justify-content-center" id="products-container">
     <!-- JS will populate products here -->
   </div>
-  
 
   <div class="text-center mt-4">
     <a href="products.html" class="btn btn-outline-primary px-5 py-2" style="font-size:18px; font-weight:600;">
       See More Products
     </a>
   </div>
-
-  
 </div>
 
-<!-- ===== FOOTER ===== -->
+<!--  FOOTER  -->
 <footer class="bg-dark text-white pt-5 pb-3">
   <div class="container text-center text-md-start">
     <div class="row">
@@ -163,50 +151,93 @@ const updateDateTime = () => {
 updateDateTime();
 setInterval(updateDateTime, 1000);
 
-// ===== Products Array =====
+// Products Array 
 const products = [
-  {id:1,name:"Laptop",price:"$5000",rating:"★★★★☆",image:"images/product1.jpg"},
-  {id:2,name:"Tablet",price:"$4500",rating:"★★★★★",image:"images/product2.jpg"},
-  {id:3,name:"Smart Phone",price:"$4000",rating:"★★★☆☆",image:"images/product3.jpg"},
-  {id:4,name:"Wireless Mouse",price:"$500",rating:"★★★★☆",image:"images/product4.webp"},
-  {id:5,name:"Wireless Headphone",price:"$3500",rating:"★★★☆☆",image:"images/product5.jpg"},
-  {id:6,name:"Smart Watch",price:"$3200",rating:"★★★★★",image:"images/product6.jpg"}
+  {id:1,name:"Laptop",price:5000,rating:"★★★★☆",image:"images/product1.jpg"},
+  {id:2,name:"Tablet",price:4500,rating:"★★★★★",image:"images/product2.jpg"},
+  {id:3,name:"Smart Phone",price:4000,rating:"★★★☆☆",image:"images/product3.jpg"},
+  {id:4,name:"Wireless Mouse",price:500,rating:"★★★★☆",image:"images/product4.webp"},
+  {id:5,name:"Wireless Headphone",price:3500,rating:"★★★☆☆",image:"images/product5.jpg"},
+  {id:6,name:"Smart Watch",price:3200,rating:"★★★★★",image:"images/product6.jpg"}
 ];
 
 // Populate products dynamically
 const container = document.getElementById('products-container');
 
-products.forEach((product, index) => {
-  const col = document.createElement('div');
-  col.className = "col-lg-4 col-md-6 col-12";
-  col.innerHTML = `
-    <div class="card product-card h-100">
-      <div class="cart-icon"><i class="bi bi-cart-plus"></i></div>
-      <img src="${product.image}" class="card-img-top" alt="${product.name}">
-      <div class="card-body text-center">
-        <h5 style="font-size:22px;font-weight:700;">${product.name}</h5>
-        <div class="rating">${product.rating}</div>
-        <p class="price">${product.price}</p>
-        <div class="d-flex justify-content-center gap-2 mt-2">
-          <button class="btn btn-primary add-btn">Add to Cart</button>
-          <a href="product-detail.html?id=${product.id}" class="btn btn-secondary">View Details</a>
+function renderProducts(list) {
+  container.innerHTML = '';
+  list.forEach((product, index) => {
+    const col = document.createElement('div');
+    col.className = "col-lg-4 col-md-6 col-12";
+    col.innerHTML = `
+      <div class="card product-card h-100">
+        <div class="cart-icon"><i class="bi bi-cart-plus"></i></div>
+        <img src="${product.image}" class="card-img-top" alt="${product.name}">
+        <div class="card-body text-center">
+          <h5 style="font-size:22px;font-weight:700;">${product.name}</h5>
+          <div class="rating">${product.rating}</div>
+          <p class="price">৳ ${product.price}</p>
+          <div class="d-flex justify-content-center gap-2 mt-2">
+            <button class="btn btn-primary add-btn" onclick="addToCart(${product.id})">Add to Cart</button>
+            <a href="product-detail.html?id=${product.id}" class="btn btn-secondary">View Details</a>
+          </div>
         </div>
       </div>
-    </div>
-  `;
-  container.appendChild(col);
-
-  // ===== Inject New Products headline + paragraph after 3rd product =====
-  if(index === 2) {
-    const newProductsRow = document.createElement('div');
-    newProductsRow.className = "col-12 text-center mt-5 mb-4";
-    newProductsRow.innerHTML = `
-      <h3 style="font-size: 1.8rem; font-weight: 600; color: #0b1c3d;">New Products</h3>
-      <p style="font-size: 1.1rem; line-height: 1.8; color: #555; max-width: 900px; margin: auto;">
-        Check out our latest arrivals that combine style and technology perfectly. From smart gadgets to everyday essentials, these products are designed to enhance your lifestyle with convenience and innovation.
-      </p>
     `;
-    container.appendChild(newProductsRow);
+    container.appendChild(col);
+
+    // Inject New Products headline + paragraph after 3rd product 
+    if(index === 2) {
+      const newProductsRow = document.createElement('div');
+      newProductsRow.className = "col-12 text-center mt-5 mb-4";
+      newProductsRow.innerHTML = `
+        <h3 style="font-size: 1.8rem; font-weight: 600; color: #0b1c3d;">New Products</h3>
+        <p style="font-size: 1.1rem; line-height: 1.8; color: #555; max-width: 900px; margin: auto;">
+          Check out our latest arrivals that combine style and technology perfectly. From smart gadgets to everyday essentials, these products are designed to enhance your lifestyle with convenience and innovation.
+        </p>
+      `;
+      container.appendChild(newProductsRow);
+    }
+  });
+}
+
+// Initial render
+renderProducts(products);
+
+// ===== CART SYSTEM =====
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+updateCartCount();
+
+function addToCart(id) {
+  const product = products.find(p => p.id === id);
+  if(!product) return;
+
+  const existing = cart.find(item => item.id === id);
+  if(existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({id: product.id, name: product.name, price: product.price, image: product.image, quantity: 1});
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  alert("✅ Product added to cart");
+}
+
+function updateCartCount() {
+  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+  document.getElementById("cartCount").innerText = count;
+}
+
+// ===== SEARCH FUNCTIONALITY =====
+document.getElementById('searchForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const filtered = products.filter(p => p.name.toLowerCase().includes(query));
+  if(filtered.length > 0){
+    renderProducts(filtered);
+  } else {
+    container.innerHTML = `<p class="text-center fs-4 text-danger">No products found for "${query}"</p>`;
   }
 });
 

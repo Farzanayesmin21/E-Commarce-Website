@@ -35,7 +35,7 @@
 
 <!-- Product Details Container -->
 <div class="container my-5" id="productDetails">
-  <!-- JS দিয়ে content আসবে -->
+  
 </div>
 
 <script>
@@ -57,7 +57,7 @@
 
   const container = document.getElementById("productDetails");
 
-  // Try URL param first
+  
   const params = new URLSearchParams(window.location.search);
   const idFromURL = params.get("id");
 
@@ -66,7 +66,7 @@
   if(idFromURL){
     product = products.find(p=>p.id===idFromURL);
   } else {
-    // Try localStorage (from home page or products page)
+    // localStorage (from home page or products page)
     const saved = localStorage.getItem("selectedProduct");
     if(saved){
       product = JSON.parse(saved);
@@ -98,7 +98,7 @@
     container.innerHTML = `<p class="text-center text-danger">Product not found. Please go back to <a href="products.html">Products</a>.</p>`;
   }
 
-  // Clear localStorage to avoid stale data
+ 
   localStorage.removeItem("selectedProduct");
 </script>
 

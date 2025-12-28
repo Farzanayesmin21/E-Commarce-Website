@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Cart - MyShop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+    img { max-width: 60px; }
+    .qty-btn { width: 30px; }
+  </style>
+</head>
+<body>
+
+<div class="container my-5">
+  <h2 class="text-center mb-4">My Cart</h2>
+
+  <table class="table table-bordered align-middle text-center">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Total</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="cartItems"></tbody>
+  </table>
+
+  <h4 class="text-end">Grand Total: ৳ <span id="grandTotal">0</span></h4>
+
+  <div class="text-center mt-4">
+    <a href="products.html" class="btn btn-success">Back to Products</a>
+  </div>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+const cartItems = document.getElementById("cartItems");
+const grandTotalEl = document.getElementById("grandTotal");
+
+// Render cart
+function renderCart() {
+  cartItems.innerHTML = "";
+  let grandTotal = 0;
+
+  cart.forEach((item, index) => {
+    const total = Number(item.price) * item.quantity;
+    grandTotal += total;
+
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td><img src="${item.image}" alt="${item.name}"></td>
+      <td>${item.name}</td>
+      <td>৳ ${item.price}</td>
+      <td>
+        <button class="btn btn-sm btn-secondary qty-btn" onclick="updateQty(${index}, -1)">-</button>
+        ${item.quantity}
+        <button class="btn btn-sm btn-secondary qty-btn" onclick="updateQty(${index}, 1)">+</button>
+      </td>
+      <td>৳ ${total}</td>
+      <td><button class="btn btn-danger btn-sm" onclick="removeItem(${index})">Remove</button></td>
+    `;
+    cartItems.appendChild(row);
+  });
+
+  grandTotalEl.innerText = grandTotal;
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// Update quantity
+function updateQty(index, change) {
+  cart[index].quantity += change;
+  if(cart[index].quantity < 1) cart[index].quantity = 1;
+  renderCart();
+}
+
+// Remove item
+function removeItem(index) {
+  cart.splice(index, 1);
+  renderCart();
+}
+
+// Initial render
+renderCart();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

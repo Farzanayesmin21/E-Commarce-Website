@@ -1,4 +1,4 @@
-/* -------------------- Top Bar -------------------- */
+/*  Top Bar  */
 .top-bar a {
   margin-left: 15px;
   text-decoration: none;
@@ -9,9 +9,9 @@
   color: rgb(78, 66, 238);
 }
 
-/* -------------------- Navbar -------------------- */
+/*  Navbar  */
 .custom-navbar {
-  background-color: #0b1c3d; /* Deep Blue */
+  background-color: #0b1c3d;
   padding: 12px 0;
 
 }
@@ -29,7 +29,7 @@
 }
 
 .navbar-nav .nav-link:hover {
-  color: #f5c518; /* golden color hover */
+  color: #f5c518;
 }
 
 /* Mobile Nav */
@@ -65,7 +65,7 @@
   }
 
   .mobile-nav li a {
-    font-size: 25px; /* offcanvas/mobile menu text বড় করা হয়েছে */
+    font-size: 25px;
   }
 
   .nav-logo {
@@ -78,7 +78,7 @@
   }
 }
 
-/* -------------------- Mobile Menu -------------------- */
+/*  Mobile Menu */
 .mobile-nav {
   list-style: none;
   padding: 0;
@@ -103,7 +103,7 @@
   background-color: #1a2b5c;
 }
 
-/* -------------------- Card & Product -------------------- */
+/* Card & Product */
 .card-img-top {
   height: 320px;
   object-fit: cover;
@@ -154,20 +154,20 @@
   font-size: 18px;
 }
 
-/* Rating */
+
 .rating {
   color: #f5c518;
   font-size: 18px;
   margin-bottom: 6px;
 }
 
-/* Price */
+
 .price {
   font-weight: bold;
   font-size: 18px;
 }
 
-/* Zoom effect on product images */
+
 .zoom {
   transition: transform 0.3s ease;
 }
@@ -176,7 +176,7 @@
   transform: scale(1.05);
 }
 
-/* Product row image height & responsive */
+
 .product-row img {
   max-height: 400px;
   width: 100%;
@@ -205,7 +205,7 @@
   }
 }
 
-/* -------------------- Carousel -------------------- */
+/* Carousel */
 .carousel-inner {
   width: 100%;
   height: 500px;    
@@ -221,7 +221,7 @@
   object-fit: cover;
 }
 
-/* -------------------- Category Box -------------------- */
+/* Category Box*/
 .category-box {
   background: #fff;
   padding: 18px;

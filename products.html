@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Products</title>
+  <title>Products - MyShop</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .product-card { transition: transform 0.2s; }
+    .product-card:hover { transform: translateY(-5px); }
+    .rating { color: #ffbf00; font-size: 1.1rem; }
+  </style>
 </head>
 <body>
 
@@ -18,57 +23,85 @@
     <ul class="navbar-nav ms-auto">
       <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
       <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="cart.html">
+          Cart <span id="cartCount" class="badge bg-warning text-dark">0</span>
+        </a>
+      </li>
     </ul>
   </div>
 </nav>
 
-<!-- MAIN CONTENT -->
+<!-- PRODUCTS -->
 <div class="container my-5">
-  <div class="row gx-3 gy-4 justify-content-center" id="products-container">
-    <!-- Products will load dynamically here -->
-  </div>
+  <h2 class="text-center mb-4">Our Products</h2>
+  <div class="row gx-3 gy-4 justify-content-center" id="products-container"></div>
 </div>
 
 <script>
-  // All 12 products info
-  const products = [
-    { id: "1", name: "Laptop", price: "$ 50000", rating: "★★★★★", image: "images/product1.jpg", description: "High-performance laptop for gaming and professional use with vibrant display.", specs: ["16GB RAM", "1TB SSD", "Intel i7 Processor", "15.6 inch 4K Display", "Backlit Keyboard"], brand: "ProTech", sku: "LP101", stock: "Limited Stock" },
-    { id: "2", name: "Tablet", price: "$ 4500", rating: "★★★★☆", image: "images/product2.jpg", description: "Lightweight tablet for reading, multimedia, and gaming on the go.", specs: ["10 inch Display", "Octa Core Processor", "3GB RAM", "32GB Storage", "WiFi & 4G"], brand: "TechTab", sku: "TB102", stock: "In Stock" },
-    { id: "3", name: "Smart Phone", price: "$ 4000", rating: "★★★★☆", image: "images/product3.jpg", description: "Latest smartphone with high-resolution display and long-lasting battery.", specs: ["6.4 inch Display", "4000mAh Battery", "Dual SIM", "48MP Camera", "Face Unlock"], brand: "SmartPro", sku: "SP103", stock: "Out of Stock" },
-    { id: "4", name: "Wireless Mouse", price: "$ 1000", rating: "★★★☆☆", image: "images/product4.webp", description: "Ergonomic wireless mouse for smooth navigation and gaming.", specs: ["2.4GHz Wireless", "Rechargeable Battery", "Adjustable DPI", "Silent Click"], brand: "ClickMaster", sku: "WM104", stock: "In Stock" },
-    { id: "5", name: "Wireless Headphone", price: "$ 2200", rating: "★★★★★", image: "images/product5.jpg", description: "Premium wireless headphone with noise cancellation and deep bass.", specs: ["Bluetooth 5.0", "20H Playtime", "Noise Cancellation", "Foldable Design"], brand: "SoundMax", sku: "WH105", stock: "Limited Stock" },
-    { id: "6", name: "Smart Watch", price: "$ 2500", rating: "★★★★☆", image: "images/product6.jpg", description: "Stylish smart watch with fitness tracking and message notifications.", specs: ["Heart Rate Monitor", "Step Counter", "Water Resistant", "Sleep Tracking"], brand: "TimePlus", sku: "SW106", stock: "In Stock" },
-    { id: "7", name: "Earphone", price: "$ 500", rating: "★★★★☆", image: "images/product7.avif", description: "Compact and lightweight earphones for crystal clear sound.", specs: ["High Bass", "Noise Isolation", "3.5mm Jack", "Tangle-Free Cable"], brand: "SoundBud", sku: "EP107", stock: "In Stock" },
-    { id: "8", name: "Gameing remote", price: "$ 5000", rating: "★★★★★", image: "images/product8.jpg", description: "Advanced gaming remote with programmable buttons and ergonomic design.", specs: ["Wireless", "Rechargeable Battery", "Vibration Feedback", "Customizable Buttons"], brand: "GameX", sku: "GR108", stock: "Limited Stock" },
-    { id: "9", name: "Airpods", price: "$ 2200", rating: "★★★★☆", image: "images/product9.jpg", description: "True wireless Airpods with clear sound and long battery life.", specs: ["Bluetooth 5.2", "24H Playtime with Case", "Noise Reduction", "Lightweight"], brand: "AirTune", sku: "AP109", stock: "In Stock" },
-    { id: "10", name: "CCTV Camera", price: "$ 4500", rating: "★★★★☆", image: "images/product10.jpg", description: "High-resolution CCTV camera for home and office security monitoring.", specs: ["1080p HD", "Night Vision", "Motion Detection", "Weatherproof"], brand: "SecureCam", sku: "CC110", stock: "In Stock" },
-    { id: "11", name: "Camera", price: "$ 1800", rating: "★★★★★", image: "images/product11.jpg", description: "Professional DSLR camera with high-quality lens and image stabilization.", specs: ["24MP Sensor", "Full HD Video", "WiFi Enabled", "Interchangeable Lenses"], brand: "PhotoKing", sku: "CM111", stock: "Limited Stock" },
-    { id: "12", name: "Keyboard", price: "$ 2000", rating: "★★★★☆", image: "images/product12.webp", description: "Mechanical keyboard with RGB backlight and ergonomic design for gaming.", specs: ["Mechanical Switches", "RGB Backlight", "USB Wired", "Durable Build"], brand: "KeyMaster", sku: "KB112", stock: "In Stock" }
-  ];
+const products = [
+  { id: 1, name: "Laptop", price: 50000, rating: "★★★★★", image: "images/product1.jpg", description: "High-performance laptop for gaming and professional use." },
+  { id: 2, name: "Tablet", price: 4500, rating: "★★★★☆", image: "images/product2.jpg", description: "Lightweight tablet for daily use." },
+  { id: 3, name: "Smart Phone", price: 4000, rating: "★★★★☆", image: "images/product3.jpg", description: "Latest smartphone with strong battery." },
+  { id: 4, name: "Wireless Mouse", price: 1000, rating: "★★★☆☆", image: "images/product4.webp", description: "Smooth wireless mouse." },
+  { id: 5, name: "Wireless Headphone", price: 2200, rating: "★★★★★", image: "images/product5.jpg", description: "Noise cancelling headphone." },
+  { id: 6, name: "Smart Watch", price: 2500, rating: "★★★★☆", image: "images/product6.jpg", description: "Fitness tracking smart watch." },
+  { id: 7, name: "Earphone", price: 500, rating: "★★★★☆", image: "images/product7.avif", description: "Clear sound earphone." },
+  { id: 8, name: "Gaming Remote", price: 5000, rating: "★★★★★", image: "images/product8.jpg", description: "Professional gaming controller." },
+  { id: 9, name: "Airpods", price: 2200, rating: "★★★★☆", image: "images/product9.jpg", description: "True wireless airpods." },
+  { id: 10, name: "CCTV Camera", price: 4500, rating: "★★★★☆", image: "images/product10.jpg", description: "Security surveillance camera." },
+  { id: 11, name: "Camera", price: 1800, rating: "★★★★★", image: "images/product11.jpg", description: "DSLR professional camera." },
+  { id: 12, name: "Keyboard", price: 2000, rating: "★★★★☆", image: "images/product12.webp", description: "Mechanical RGB keyboard." }
+];
 
-  const container = document.getElementById('products-container');
+const container = document.getElementById("products-container");
+const cartCountEl = document.getElementById("cartCount");
 
-  // Populate products dynamically
-  products.forEach(product => {
-    const col = document.createElement('div');
-    col.className = "col-lg-4 col-md-6 col-12";
-    col.innerHTML = `
-      <div class="card product-card h-100">
-        <div class="cart-icon"><i class="bi bi-cart-plus"></i></div>
-        <img src="${product.image}" class="card-img-top" alt="${product.name}">
-        <div class="card-body text-center">
-          <h5 style="font-size:22px;font-weight:700;">${product.name}</h5>
-          <div class="rating">${product.rating}</div>
-          <p class="price">${product.price}</p>
-          <div class="d-flex justify-content-center gap-2 mt-2">
-            <button class="btn btn-primary add-btn">Add to Cart</button>
-            <a href="product-detail.html?id=${product.id}" class="btn btn-secondary">View Details</a>
-          </div>
+// Load cart count on page load
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+cartCountEl.innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+// Populate products dynamically
+products.forEach(product => {
+  const col = document.createElement("div");
+  col.className = "col-lg-4 col-md-6 col-12";
+  col.innerHTML = `
+    <div class="card product-card h-100">
+      <img src="${product.image}" class="card-img-top" alt="${product.name}">
+      <div class="card-body text-center">
+        <h5 style="font-size:22px;font-weight:700;">${product.name}</h5>
+        <div class="rating">${product.rating}</div>
+        <p class="price">৳ ${product.price}</p>
+        <div class="d-flex justify-content-center gap-2 mt-2">
+          <button class="btn btn-primary" onclick="addToCart(${product.id})">Add to Cart</button>
+          <a href="product-detail.html?id=${product.id}" class="btn btn-secondary">View Details</a>
         </div>
       </div>
-    `;
-    container.appendChild(col);
-  });
+    </div>
+  `;
+  container.appendChild(col);
+});
+
+// ===== Add to Cart Function =====
+function addToCart(id) {
+  const product = products.find(p => p.id === id);
+  if (!product) return;
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const exists = cart.find(item => item.id === id);
+
+  if (exists) {
+    exists.quantity += 1;
+  } else {
+    cart.push({ ...product, quantity: 1 });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Update cart badge
+  cartCountEl.innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
+  alert("Product added to cart!");
+}
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
